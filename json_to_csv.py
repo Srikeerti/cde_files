@@ -28,5 +28,19 @@ for emp in emp_data:
     
 # https://stackoverflow.com/questions/1871524/how-can-i-convert-json-to-csv
 
+'''
+def flattenjson( b, delim ):
+    val = {}
+    for i in b.keys():
+        if isinstance( b[i], dict ):
+            get = flattenjson( b[i], delim )
+            for j in get.keys():
+                val[ i + delim + j ] = get[j]
+        else:
+            val[i] = b[i]
+
+    return val
+'''
+
 
 
