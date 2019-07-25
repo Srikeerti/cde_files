@@ -1,5 +1,11 @@
-with open('sample.json','r') as f:
-    data = json.load(f)
+import json
+import csv
+from collections import OrderedDict
+
+with open('C:/Users/koakhila/Documents/sample.json','r') as f:
+    data = json.load(f,object_pairs_hook=OrderedDict)
+    #data = json.load(f)
+    print(data)
 ovia = data['report']['records']
 count = 0
 for i in ovia:
@@ -8,7 +14,7 @@ for i in ovia:
         #print(type(i))
         #print(list(i.keys()))
         header = list(i.keys())
-        with open('file.csv', 'w', newline='') as myfile:
+        with open('C:/Users/koakhila/Desktop/file.csv', 'w') as myfile:
             wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
             wr.writerow(header)
         count+=1
@@ -16,6 +22,6 @@ for i in ovia:
     print("Going to write CSV data")
     #print(list(i.values()))
     values = list(i.values())
-    with open('file.csv', 'a', newline='') as myfile:
+    with open('C:/Users/koakhila/Desktop/file.csv', 'a') as myfile:
             wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
             wr.writerow(values)
